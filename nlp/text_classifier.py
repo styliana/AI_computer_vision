@@ -28,6 +28,7 @@ model.fit(train.data, train.target)
 #test the model
 labels = model.predict(test.data)
 
+'''
 #print the confusion matrix
 conf_matrix = confusion_matrix(test.target, labels)
 sns.heatmap(conf_matrix.T, fmt='d', square=True, cbar=False, annot=True, 
@@ -35,3 +36,12 @@ xticklabels=train.target_names, yticklabels=train.target_names) #coolor bar -cba
 plt.xlabel('true label')
 plt.ylabel('predicted labels')
 plt.show()
+'''
+
+
+#try the classifier with out text
+s = 'I believe i can fly' #assigns that the topic is space. which is right
+# s = 'us the texture as you wish' #assigns that the topic is space. which is wrong. we meant comp graphics
+# s = 'you have to fo the raytracing of the planets' #planets are more importnat in the code. which assigns space, even though its comp graphics
+pred = model.predict([s])
+print(train.target_names[pred[0]])
